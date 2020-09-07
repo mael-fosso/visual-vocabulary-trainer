@@ -9,6 +9,9 @@
     <link href="/static/style.css" rel="stylesheet">
      <!--in order to register this service worker-->
       {% progressive_web_app_meta %}
+     <!-- This is to defined the viewport and how the app must behave when on full screen. This is required too. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="manifest" href="{% static 'manifest.json' %}">
   </head>
   <body class="d-flex flex-column h-100 min-vh-100">
     <header>
