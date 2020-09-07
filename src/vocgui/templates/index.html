@@ -8,7 +8,22 @@
     <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="/static/style.css" rel="stylesheet">
      <!--in order to register this service worker-->
-      {% progressive_web_app_meta %}
+    <!--  {% progressive_web_app_meta %}-->
+     <script>
+      if('serviceWorker' in navigator) {
+        window.addEventListener('Load', function(){
+          navigator.serviceWorker.register('/static/serviceWorker.js').then(
+            fnuction(registration){
+            // Registration was successful
+            console.log('ServiceWorker registration successful with scope:', registration.scope)
+        },
+        function(err) {
+          //registration failed
+          console.log('ServiceWorker registration failed:' , err)
+        })
+      })
+      }
+    </script>
      <!-- This is to defined the viewport and how the app must behave when on full screen. This is required too. -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
    <link rel="manifest" href="{% static 'manifest.json' %}">
